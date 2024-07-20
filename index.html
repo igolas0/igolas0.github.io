@@ -1,1 +1,79 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier</title>
+</head>
+<body>
+    <input id="photo" type="file" accept="image/*">
+    <div id="results"></div>
+    <div id="debug"></div>
+
+    <script type="module">
+
+	import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
+        function log(message) {
+            console.log(message);
+            document.getElementById('debug').innerHTML += `<p>${message}</p>`;
+        }
+
+        async function loaded(reader) {
+            try {
+		const client = await Client.connect("igolas0/fastai_sportsman");
+
+		const blob = new Blob([reader.result], { type: photo.files[0].type });
+
+		const result = await client.predict("/predict", [
+  		     photo.files[0]  // Send the raw File object
+		]);
+
+                if (result.data && result.data[0]) {
+                    const prediction = result.data[0];
+                    const label = prediction.label;
+                    const confidences = prediction.confidences;
+                    let confidenceHtml = '<ul>';
+                    confidences.forEach(conf => {
+                        confidenceHtml += `<li>${conf.label}: ${(conf.confidence * 100).toFixed(2)}%</li>`;
+                    });
+                    confidenceHtml += '</ul>';
+                    results.innerHTML = `
+                        <br/>
+                        <img src="${reader.result}" width="300">
+                        <p>Predicted: ${label}</p>
+                        <p>Confidences:</p>
+                        ${confidenceHtml}
+                    `;
+                } else {
+                    results.innerHTML = '<p>Unable to process prediction result.</p>';
+                }
+	    } catch (error) {
+    		console.error("Error:", error);
+	        log("Error: " + error.message);
+    		if (error.response) {
+        		log("Response status: " + error.response.status);
+        		log("Response data: " + JSON.stringify(error.response.data));
+    		}
+    		if (error.stack) {
+        		log("Stack trace: " + error.stack);
+    		}
+    		results.innerHTML = `<p>Error: ${error.message}</p>`;
+	    }
+        }
+
+        function read() {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                loaded(reader);
+            });
+            reader.addEventListener('error', (error) => {
+                log("Error reading file: " + error);
+            });
+            reader.readAsDataURL(photo.files[0]);
+        }
+
+        photo.addEventListener('input', read);
+    </script>
+</body>
+</html>
