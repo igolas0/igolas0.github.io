@@ -1,9 +1,0 @@
-remote_theme: daviddarnes/alembic@main
-plugins:
-- jekyll-remote-theme
-
-title: Igor Molina
-description: Basic example of a client interface to a computer vision API
-
-author:
-  name: Igor Molina
