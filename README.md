@@ -7,7 +7,7 @@ Link to demo: https://igolas0.github.io/
 In this repository the front end side is covered.
 
 The backend site is covered in this other repository:
-
+https://github.com/igolas0/AI-App-Backend
 
 ## Frontend Application Summary
 
@@ -25,7 +25,7 @@ Core Features
 
     Backend requires flask-cors to allow cross-origin requests from the frontend.
 
-###Configuration
+### Configuration
 
     API Endpoint: Configured in index.html to point to https://[USERNAME].pythonanywhere.com/chat.
 
@@ -35,7 +35,7 @@ Core Features
 
         Hugging Face token stored securely via PythonAnywhere environment variables.
 
-###Deployment
+### Deployment
 
     Frontend:
 
@@ -45,7 +45,7 @@ Core Features
 
         Flask app deployed on PythonAnywhere with environment variables for tokens.
 
-###Quick Start Guide
+### Quick Start Guide
 
     Clone the GitHub repo.
 
