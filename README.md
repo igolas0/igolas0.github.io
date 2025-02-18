@@ -21,11 +21,11 @@ Core Features
         Displays a conversational history with user prompts and bot responses.
 
 
-Dependencies
+###Dependencies
 
     Backend requires flask-cors to allow cross-origin requests from the frontend.
 
-Configuration
+###Configuration
 
     API Endpoint: Configured in index.html to point to https://[USERNAME].pythonanywhere.com/chat.
 
@@ -35,7 +35,7 @@ Configuration
 
         Hugging Face token stored securely via PythonAnywhere environment variables.
 
-Deployment
+###Deployment
 
     Frontend:
 
@@ -45,7 +45,7 @@ Deployment
 
         Flask app deployed on PythonAnywhere with environment variables for tokens.
 
-Quick Start Guide
+###Quick Start Guide
 
     Clone the GitHub repo.
 
