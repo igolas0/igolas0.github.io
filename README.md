@@ -6,7 +6,7 @@ Link to demo: https://igolas0.github.io/
 
 In this repository the front end side is covered.
 
-The backend site is covered in this other repository:
+The backend side is covered in this other repository:
 https://github.com/igolas0/AI-App-Backend
 
 ## Frontend Application Summary
