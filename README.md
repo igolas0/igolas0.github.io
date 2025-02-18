@@ -9,7 +9,7 @@ In this repository the front end side is covered.
 The backend site is covered in this other repository:
 
 
-Frontend Application Summary
+## Frontend Application Summary
 
 Purpose: A health and longevity chatbot interface that connects to a backend API (hosted on PythonAnywhere) to deliver AI-generated health tips using an LLM (Mistral-7B via Hugging Face).
 Core Features
@@ -21,7 +21,7 @@ Core Features
         Displays a conversational history with user prompts and bot responses.
 
 
-###Dependencies
+### Dependencies
 
     Backend requires flask-cors to allow cross-origin requests from the frontend.
 
